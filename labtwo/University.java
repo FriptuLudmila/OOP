@@ -80,8 +80,8 @@ public class University {
                 break;
             case 2:
                 System.out.println("Enter the email of the student you want to graduate:");
-                String graduateEmail = scanner.nextLine(); // Changed variable name here
-                selectedFaculty.graduateStudent(graduateEmail); // And here
+                String graduateEmail = scanner.nextLine();
+                selectedFaculty.graduateStudent(graduateEmail);
                 break;
             case 3:
                 selectedFaculty.displayEnrolledStudents();
@@ -92,7 +92,7 @@ public class University {
             case 5:
 
                 System.out.println("Enter the email of the student you want to check:");
-                String studentEmail = scanner.nextLine(); // Changed variable name to avoid conflict
+                String studentEmail = scanner.nextLine();
                 if (selectedFaculty.doesStudentBelong(studentEmail))
                     System.out.println("Yes, the student belongs to this faculty.");
                 else
@@ -102,11 +102,10 @@ public class University {
     }
 
     private void generalOperations() {
-        //Keep it only for general operations like creating a faculty, displaying university faculties, etc.
         System.out.println("Choose General Operation:\n1. Create a new faculty\n2. Search what faculty a student belongs to\n3. Display University faculties\n4. Display all faculties belonging to a field");
 
         int choice = scanner.nextInt();
-        scanner.nextLine(); // consume newline
+        scanner.nextLine();
 
         switch (choice) {
             case 1:
@@ -120,7 +119,6 @@ public class University {
                 String field = scanner.nextLine();
 
                 faculties.add(new Faculty(name, abbreviation, StudyField.valueOf(field)));
-                // Rest of the cases are similar
                 break;
             case 2:
                 System.out.println("Existing Faculties are: ");
