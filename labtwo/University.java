@@ -121,22 +121,41 @@ public class University {
                 faculties.add(new Faculty(name, abbreviation, StudyField.valueOf(field)));
                 break;
             case 2:
+                System.out.println("Enter the email of the student you want to search for:");
+                String searchEmail = scanner.nextLine();
+                boolean studentFound = false;
+
+                for (Faculty faculty : faculties) {
+                    if (faculty.doesStudentBelong(searchEmail)) {
+                        System.out.println("The student belongs to the faculty: " + faculty.getName());
+                        studentFound = true;
+                        break;
+                    }
+                }
+
+                if (!studentFound) {
+                    System.out.println("The student does not belong to any faculty.");
+                }
+
+                break;
+            case 3:
                 System.out.println("Existing Faculties are: ");
                 faculties.forEach(faculty -> System.out.println(faculty.getName()));
                 break;
-            case 3:
+            case 4:
                 System.out.println("Enter Study Field (MECHANICAL_ENGINEERING, SOFTWARE_ENGINEERING, FOOD_TECHNOLOGY, URBANISM_ARCHITECTURE, VETERINARY_MEDICINE):");
-                String studyFieldInput = scanner.nextLine();
-                try {
-                    StudyField studyField = StudyField.valueOf(studyFieldInput);
-                    System.out.println("Faculties in field " + studyField + " are:");
-                    faculties.stream()
-                            .filter(faculty -> faculty.getStudyField() == studyField)
-                            .forEach(faculty -> System.out.println(faculty.getName()));
-                } catch (IllegalArgumentException e) {
-                    System.out.println("Invalid Study Field Entered!");
-                }
-                break;
+         String studyFieldInput = scanner.nextLine();
+         try {
+         StudyField studyField = StudyField.valueOf(studyFieldInput);
+        System.out.println("Faculties in field " + studyField + " are:");
+         faculties.stream()
+        .filter(faculty -> faculty.getStudyField() == studyField)
+         .forEach(faculty -> System.out.println(faculty.getName()));
+         } catch (IllegalArgumentException e) {
+        System.out.println("Invalid Study Field Entered!");
+         }
+         break;
+
         }
     }
 }
