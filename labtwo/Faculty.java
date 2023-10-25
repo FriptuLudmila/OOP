@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Faculty {
+public class  Faculty {
     public String name;
     private String abbreviation;
     private List<Student> students; // to hold enrolled students
