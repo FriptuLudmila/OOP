@@ -1,8 +1,9 @@
 package StackImplement;
 
 import exceptions.FullStackException;
+import interfaces.Stack;
 
-public class BottomStack<E> extends ArrayStack<E> {
+public class BottomStack<E> extends ArrayStack<E> implements Stack<E> {
 
     public BottomStack(int initialCapacity) {
         super(initialCapacity);
